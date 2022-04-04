@@ -11,11 +11,11 @@ fn main() {
     // execution like in threads
     let handle1 = process_and_readonly_data(&x);
     let handle2 = process_and_readonly_data(&x);
+    let handle3 = process_and_write_data(&mut x);
+    let handle4 = process_and_write_data(&mut x);
     println!("{}", handle1);
     println!("{}", handle2);
-    let handle3 = process_and_write_data(&mut x);
     println!("{}", handle3);
-    let handle4 = process_and_write_data(&mut x);
     println!("{}", handle4);
 }
 
