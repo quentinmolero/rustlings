@@ -161,6 +161,18 @@ For that first compiler error, it's important in Rust that each conditional
 block return the same type! To get the tests passing, you will need a couple
 conditions checking different input values."""
 
+[[exercises]]
+name = "if3"
+path = "exercises/if/if3.rs"
+mode = "test"
+hint = """
+The compiler complains about a not initialized variable, 
+but the declaration of the 'fees' variable cannot be changed.
+In Rust, it is allowed to not initialize a variable on the declaration; the only rule is:
+all paths leading to the reading of the variable must include an initialization.
+(and if there is exactly one initialization, `mut` qualifier is not required).
+"""
+
 # TEST 1
 
 [[exercises]]
@@ -251,6 +263,53 @@ Once you've fixed that, `string_uppercase`'s function signature will also need t
 Can you figure out how?
 
 Another hint: it has to do with the `&` character."""
+
+[[exercises]]
+name = "move_semantics7"
+path = "exercises/move_semantics/move_semantics7.rs"
+mode = "compile"
+hint = """
+The compiler gives a few helpful advices.
+Think of the consequence of a choice before using its advices.
+In that case, both advices are incompatible (even if individually they could be right).
+
+Fix the first error, then recompile and resolve the second one.
+
+You will see that &mut qualifier can be applied to return types.
+In that example, the borrowing passes through the add_one_value function.
+"""
+
+[[exercises]]
+name = "move_semantics8"
+path = "exercises/move_semantics/move_semantics8.rs"
+mode = "test"
+hint = """
+In Rust, a function can return a reference to a memory location.
+However, the reference cannot be dangling or pointing a droppable memory location (e.g. stack variable).
+
+The *only* thing you have to do is to return a non local memory value. 
+
+See https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html#dangling-references .
+"""
+
+[[exercises]]
+name = "move_semantics9"
+path = "exercises/move_semantics/move_semantics9.rs"
+mode = "compile"
+hint = """
+This exercise extends move_semantics5 and exposes *handle* variables as 
+handles of a process living as long as its handle lives. 
+It gives a taste of the multithreading/concurrency issues but sequentially.
+
+The rule to follow is:
+* either only one mutable borrowing at a time
+* either many immutable borrowings
+
+Extra hint: a `handle` variable lives as long as it is required for later use. 
+
+See in the book's section References and Borrowing':
+https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html#mutable-references.
+"""
 
 # PRIMITIVE TYPES
 
