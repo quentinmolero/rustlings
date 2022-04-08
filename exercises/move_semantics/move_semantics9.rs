@@ -3,19 +3,17 @@
 // but without adding, changing or removing anything else.
 // `rustlings hint move_semantics9` for hints
 
-// I AM NOT DONE
-
 fn main() {
     let mut x = "Hello".to_string();
     // handle* variables simulate handles of a detached
     // execution like in threads
     let handle1 = process_and_readonly_data(&x);
-    let handle2 = process_and_readonly_data(&x);
-    let handle3 = process_and_write_data(&mut x);
-    let handle4 = process_and_write_data(&mut x);
     println!("{}", handle1);
+    let handle2 = process_and_readonly_data(&x);
     println!("{}", handle2);
+    let handle3 = process_and_write_data(&mut x);
     println!("{}", handle3);
+    let handle4 = process_and_write_data(&mut x);
     println!("{}", handle4);
 }
 
